@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <h2>Nhập một số thực để thực hiện các phép tính</h2>
+<input type="text" id="numberInput" placeholder="Nhập số thực...">
+<button onclick="performCalculations()">Thực hiện phép tính</button>
+<p id="errorMessage" style="color: red;"></p>
+<p id="squareRoot"></p>
+<p id="square"></p>
+<p id="roundedNumber"></p>
+
+<script>
+function performCalculations() {
+    var input = document.getElementById("numberInput").value;
+    var number = parseFloat(input);
+
+    if (isNaN(number)) {
+        document.getElementById("errorMessage").innerText = "Vui lòng nhập vào một số thực.";
+        document.getElementById("squareRoot").innerText = "";
+        document.getElementById("square").innerText = "";
+        document.getElementById("roundedNumber").innerText = "";
+    } else {
+        document.getElementById("errorMessage").innerText = "";
+        
+        var squareRoot = Math.sqrt(number);
+        var square = Math.pow(number, 2);
+        var roundedNumber = Math.round(number);
+        
+        document.getElementById("squareRoot").innerText = "Căn bậc 2 của " + number + " là: " + squareRoot.toFixed(2);
+        document.getElementById("square").innerText = "Bình phương của " + number + " là: " + square;
+        document.getElementById("roundedNumber").innerText = "Số đã nhập làm tròn là: " + roundedNumber;
+    }
+}
+</script>
+    
+    
+</body>
+</html>
